@@ -300,10 +300,6 @@ public class AddBooking extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
-    private void startTimeCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startTimeCBActionPerformed
-
-    }//GEN-LAST:event_startTimeCBActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
     private javax.swing.JButton cancelBtn;

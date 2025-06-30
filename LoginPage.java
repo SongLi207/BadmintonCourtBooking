@@ -161,7 +161,7 @@ public class LoginPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Login successful");
             dispose(); // Close the login page
             bookingList.readFile(); // Read data
-            new BadmintonBookingSystem(auth, bookingList).setVisible(true);// Open the BadmintonBookingSystem
+            new BadmintonCourtBookingSystem(auth, bookingList).setVisible(true);// Open the BadmintonBookingSystem
         } else {
             lblMessage.setText("Invalid username or password. Please try again.");
         }

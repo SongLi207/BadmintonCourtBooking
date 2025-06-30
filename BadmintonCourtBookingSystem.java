@@ -9,13 +9,13 @@
  * @author USER
  */
 import javax.swing.*;
-public class BadmintonBookingSystem extends javax.swing.JFrame {
+public class BadmintonCourtBookingSystem extends javax.swing.JFrame {
     private UserAuth auth;// Handles user authentication and tracks the current login user
     private BookingList bookingList; // Manages the list of all court bookings including file I/O operations
     /**
      * Creates new form BadmintonBookingSystem
      */
-    public BadmintonBookingSystem(UserAuth auth, BookingList bookingList) {
+    public BadmintonCourtBookingSystem(UserAuth auth, BookingList bookingList) {
         this.auth = auth; // Store the passed in UserAuth object used to access the current user information
         this.bookingList = bookingList; // Store the passed in BookingList object for accessing and managing court bookings
         bookingList.readFile(); // Read bookings from file

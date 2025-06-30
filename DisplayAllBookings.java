@@ -99,7 +99,7 @@ public class DisplayAllBookings extends javax.swing.JFrame {
             "Confrimation", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION){
             dispose();
-            new BadmintonBookingSystem(auth, bookingList).setVisible(true);
+            new BadmintonCourtBookingSystem(auth, bookingList).setVisible(true);
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

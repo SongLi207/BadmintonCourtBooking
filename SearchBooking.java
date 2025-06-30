@@ -175,7 +175,7 @@ public class SearchBooking extends javax.swing.JFrame {
         "Confirm Page", JOptionPane.YES_NO_OPTION);
         if (confirm == JOptionPane.YES_OPTION){
             dispose();
-            new BadmintonBookingSystem(auth, bookingList).setVisible(true);
+            new BadmintonCourtBookingSystem(auth, bookingList).setVisible(true);
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

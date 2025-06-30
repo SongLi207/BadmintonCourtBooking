@@ -233,7 +233,7 @@ public class BookingCourt extends javax.swing.JFrame {
         "Confirn Page", JOptionPane.YES_NO_OPTION);
         if (confirn == JOptionPane.YES_OPTION){
             dispose();
-            new BadmintonBookingSystem(auth, bookingList).setVisible(true);
+            new BadmintonCourtBookingSystem(auth, bookingList).setVisible(true);
         }
     }//GEN-LAST:event_backBtnActionPerformed
 

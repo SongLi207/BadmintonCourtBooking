@@ -1,19 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
-/**
- *
- * @author USER
- */
 import javax.swing.*;
 public class CheckCourt extends javax.swing.JFrame {
     private UserAuth auth;
     private BookingList bookingList;
-    /**
-     * Creates new form CheckCourt
-     */
+    
+    // Creates new form CheckCourt
     public CheckCourt(UserAuth auth, BookingList bookingList) {
         this.auth = auth;
         this.bookingList = bookingList;

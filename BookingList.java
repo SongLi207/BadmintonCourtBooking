@@ -65,7 +65,7 @@ public class BookingList {
         return list;
     }
     //Converts time from String to 24 hour int format
-    private int timeToInt(String time){
+    public int timeToInt(String time){
         if (time == null || time.trim().isEmpty()){
             return -1; // If the input is invalid
         }

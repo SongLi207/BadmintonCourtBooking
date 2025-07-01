@@ -222,7 +222,7 @@ public class AddBooking extends javax.swing.JFrame {
     private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
         int confirn = JOptionPane.showConfirmDialog(this, 
             isUpdateMode? "Cancel update this booking?" : "Cancel booking?", 
-            "Cancel Confrimation", JOptionPane.YES_NO_OPTION);
+            "Cancel Confirmation", JOptionPane.YES_NO_OPTION);
         if (confirn == JOptionPane.YES_OPTION){
             dispose();
             new BookingCourt(auth, bookingList).setVisible(true);
@@ -251,30 +251,27 @@ public class AddBooking extends javax.swing.JFrame {
                 int duration = Integer.parseInt(durationTF.getText().trim());
                 int courtNum = Integer.parseInt((String)courtCB.getSelectedItem());
 
-                // Check validate
-                if (duration == 0){
-                    JOptionPane.showMessageDialog(this, "All fields must be filled!", "Input Error", JOptionPane.ERROR_MESSAGE);
-                }
-                
-                if (duration < 1) {
-                    throw new IllegalArgumentException ("Duration must be positive.");
-                }
-                
                 // Calculate the duration
-                int startHour = bookingList.timeToInt(startTime);
-                int endHour = bookingList.timeToInt(endTime);
-                int realDuration = endHour - startHour;
-                // Check if user input matches the time range
-                if (duration != realDuration) {
-                    JOptionPane.showMessageDialog(this, "Duration must match the time range.\nStart: " + startTime + " End: " + endTime +
-                            "\nDuration should be " + realDuration + " hour(s).", "Input Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }                
-                
-                if (startTimeCB.getSelectedIndex() >= endTimeCB.getSelectedIndex()){
-                    JOptionPane.showMessageDialog(this, "Start time must be before end time.", "Time Error", JOptionPane.ERROR_MESSAGE);
+                int startIndex = startTimeCB.getSelectedIndex();
+                int endIndex = endTimeCB.getSelectedIndex();
+                int correctDuration = endIndex - startIndex;
+                // Check the time
+                if (startIndex >= endIndex) {
+                    JOptionPane.showMessageDialog(this, "Start time must be earlier than End time.", 
+                            "Time Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+                // Check if user input matches the time range
+                if (duration != correctDuration) {
+                    JOptionPane.showMessageDialog(this,
+                        "Duration does not match the selected time range.\n" +
+                        "Start Time: " + startTime + "\nEnd Time: " + endTime +
+                        "\nCorrect Duration: " + correctDuration + " hour(s)\n" +
+                        "You Entered: " + duration + " hour(s)",
+                        "Duration Mismatch", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 // Check the available of the court and if updated ignore this booking
                 boolean available = bookingList.checkCourt(days, startTime, endTime, courtNum, isUpdateMode ? idUpdate : "");
                 if(!available){

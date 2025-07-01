@@ -260,6 +260,17 @@ public class AddBooking extends javax.swing.JFrame {
                     throw new IllegalArgumentException ("Duration must be positive.");
                 }
                 
+                // Calculate the duration
+                int startHour = bookingList.timeToInt(startTime);
+                int endHour = bookingList.timeToInt(endTime);
+                int realDuration = endHour - startHour;
+                // Check if user input matches the time range
+                if (duration != realDuration) {
+                    JOptionPane.showMessageDialog(this, "Duration must match the time range.\nStart: " + startTime + " End: " + endTime +
+                            "\nDuration should be " + realDuration + " hour(s).", "Input Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }                
+                
                 if (startTimeCB.getSelectedIndex() >= endTimeCB.getSelectedIndex()){
                     JOptionPane.showMessageDialog(this, "Start time must be before end time.", "Time Error", JOptionPane.ERROR_MESSAGE);
                     return;
